@@ -1,0 +1,21 @@
+import hashlib
+
+
+def shorten_url(url):
+   
+    hash_object = hashlib.md5(url.encode())
+    hash_hex = hash_object.hexdigest()
+    
+    
+    short_code = hash_hex[:6]
+    
+    
+    short_url = f"http://mydomain.com/{short_code}"
+    
+    return short_url
+
+
+original_url = "https://www.example.com/veryverylongcodetoshortcode/long/url"
+shortened_url = shorten_url(original_url)
+print(f"Original URL: {original_url}")
+print(f"Shortened URL: {shortened_url}")
